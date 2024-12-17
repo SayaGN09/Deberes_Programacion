@@ -1,3 +1,4 @@
+```
 # Exercici 0000
 
 Fes un programa que demani dos números (fent servir inputs) i calculi la resta entre ells.

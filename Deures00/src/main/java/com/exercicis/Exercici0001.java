@@ -8,9 +8,16 @@ public class Exercici0001 {
         Scanner scanner = new Scanner(System.in);
         Locale localeUS = Locale.US;
 
-        /*
-            TODO: Resol aquí l'exercici
-        */
+        System.out.print("Escriu el pes (kg): ");
+        Double pes = scanner.nextDouble();
+
+        System.out.print("Escriu l'alçada (cm): ");
+        Double alçada = scanner.nextDouble();
+
+        double alturaMetres = alçada / 100;
+        double imc = pes / (alturaMetres * alturaMetres);
+
+        System.out.printf(localeUS,"imc = %.2f%n", imc);
 
         scanner.close();
     }

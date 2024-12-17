@@ -5,10 +5,16 @@ import java.util.Scanner;
 public class Exercici0000 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Escriu el primer número: ");
+        int X = scanner.nextInt();
 
-        /*
-            TODO: Resol aquí l'exercici
-         */
+        System.out.print("Escriu el segon núḿero: ");
+        int Y = scanner.nextInt();
+
+        int Z = X - Y;
+
+        System.out.println("El resultat de calcular "+X+" - "+Y+" és "+Z);
 
         scanner.close();
     }
