@@ -5,50 +5,86 @@ import java.util.*;
 public class Exercici0013 {
     
     public static int generateId(ArrayList<HashMap<String, Object>> cities) {
-        /*
-            TODO: Resol aquí la funció
-        */
-        return 1000;
+
+        Random random = new Random();
+        int id;
+        do {
+            id = random.nextInt(8000) + 1000;
+        } while (idExists(cities, id));
+
+        return id;
     }
     
     public static boolean idExists(ArrayList<HashMap<String, Object>> cities, int id) {
-        /*
-            TODO: Resol aquí la funció
-        */
+
+        for (HashMap<String, Object> city : cities) {
+            if ((int) city.get("id") == id) {
+                return true;
+            }
+        }
+
         return false;
     }
 
     public static int getIdByName(ArrayList<HashMap<String, Object>> cities, String name) {
-        /*
-            TODO: Resol aquí la funció
-        */
+
+        for (HashMap<String, Object> city : cities) {
+            if (city.get("name").equals(name)) {
+                return (int) city.get("id");
+            }
+        }
+
         return -1; // -1 si no troba la ciutat
     }
     
     public static void addCity(ArrayList<HashMap<String, Object>> cities, 
             String name, int population, int height, boolean sealand) {
-        /*
-            TODO: Resol aquí la funció
-        */
+
+        HashMap<String, Object> city = new HashMap<>();
+        city.put("id", generateId(cities));
+        city.put("name", name);
+        city.put("population", population);
+        city.put("height", height);
+        city.put("sealand", sealand);
+        cities.add(city);
+
     }
     
     public static void removeCity(ArrayList<HashMap<String, Object>> cities, int id) {
-        /*
-            TODO: Resol aquí la funció
-        */
+
+        cities.removeIf(city -> (int) city.get("id") == id);
+
     }
     
     public static void updateData(ArrayList<HashMap<String, Object>> cities, 
             int id, String field, Object value) {
-        /*
-            TODO: Resol aquí la funció
-        */
+
+        for (HashMap<String, Object> city : cities) {
+            if ((int) city.get("id") == id) {
+                city.put(field, value);
+                return; 
+            }
+        }
     }
     
     public static void showInformation(ArrayList<HashMap<String, Object>> cities) {
-        /*
-            TODO: Resol aquí la funció
-        */
+
+        String separator = "-".repeat(46);
+        System.out.println(separator);
+        System.out.printf("|%-5s|%-10s|%10s|%7s|%8s|\n", "ID", "Name", "Population", "Height", "Sealand");
+        System.out.println(separator);
+
+        for (HashMap<String, Object> city : cities) {
+            System.out.printf("|%-5d|%-10s|%10d|%7d|%8b|\n",
+                    city.get("id"),
+                    city.get("name"),
+                    city.get("population"),
+                    city.get("height"),
+                    city.get("sealand"));
+        }
+
+        System.out.println(separator);
+
     }
 
     public static void main(String[] args) {
