@@ -3,7 +3,6 @@ package com.exercicis;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Locale;
 
 public class Exercici0014 {
 
